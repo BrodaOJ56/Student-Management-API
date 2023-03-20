@@ -67,11 +67,11 @@ class StudentRegistrationView(Resource):
             admission_no=admission
             )
         
-        #try:
-        new_user.save()
-        # except:
-        #     db.session.rollback()
-        #     return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
+        try:
+         new_user.save()
+        except:
+            db.session.rollback()
+            return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
         return {'message': 'You have been registered successfully as a {}'.format(new_user.user_type)}, HTTPStatus.CREATED
 
 
@@ -104,11 +104,11 @@ class TeacherCreationView(Resource):
             user_type = 'teacher', password_hash = generate_password_hash(data.get('password')),
             employee_no=employee
             )
-        #try:
-        new_user.save()
-        # except:
-        #     db.session.rollback()
-        #     return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
+        try:
+         new_user.save()
+        except:
+            db.session.rollback()
+            return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
         return {'message': 'You have been registered successfully as a {}'.format(new_user.user_type)}, HTTPStatus.CREATED
             
 
