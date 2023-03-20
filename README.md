@@ -257,6 +257,14 @@ Install all requirements
 ```
 $ pip install -r requirements.txt
 ```
+Export to run the project in development environment
+
+```
+export FLASK_APP=api/
+```
+```
+echo FLASK_APP
+```
 
 Create database
 
@@ -267,28 +275,6 @@ flask db init
 ```
 flask db migrate -m "your description"
 ```
-
-```
-flask db upgrade
-```
-
-Run the project in development
-
-
-```
-export FLASK_APP=api/
-```
-
-```
-echo FLASK_APP
-```
-
-```
-python runserver.py
-```
-
-Or 
-
 
 ``` 
 flask run
@@ -304,7 +290,7 @@ Create a student or teacher account:
 - Click 'auth' to reveal a dropdown menu of auth routes, then register as either as a student or teacher.
 - Sign in via the '/auth/login' route to generate a JWT token. Copy this access token without the quotation marks
 
-- Scroll up to click 'Authorize' at top right. Enter the JWT token in the given format, for example:
+- Scroll up to click 'Authorize' at top right. Enter the JWT token in the given format, Bearer <token> for example:
 
 ```
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3OTE1NTM5MywianRpIjoiMGQ1MGFlNWUtZTAyMy00ZDI3LTg3MjAtNTFmMzg0NWJkZGRkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNjc5MTU1MzkzLCJleHAiOjE2NzkyNDE3OTN9.Mr-uZ2Ne6H-RAGgooQq0jOuORCmdRnCqa3K1nCUlHQA
