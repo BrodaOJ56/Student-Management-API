@@ -9,7 +9,7 @@ class User(db.Model ):
     email =  db.Column( db.String(100) , nullable=False , unique=True )
     first_name = db.Column(db.String(100), nullable=False )
     last_name = db.Column(db.String(100), nullable=False )
-    password_hash = db.Column(db.String(64) , nullable=False )
+    password_hash = db.Column(db.Text(), nullable=False)
     password_reset_token = db.Column(db.String(64) , nullable=True )
     created_at = db.Column(db.DateTime() , nullable=False , default=datetime.utcnow)
 
