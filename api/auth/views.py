@@ -1,4 +1,4 @@
-from flask_restx import Namespace, Resource, fields
+from flask_restx import Namespace, Resource, fields, abort
 from flask import request
 import datetime
 from ..models.students import Student
@@ -49,11 +49,11 @@ class StudentRegistrationView(Resource):
     def post(self):
         """ Create a new Student Account """
         data = request.get_json()
-        # Check if user already exists
-        user = User.query.filter_by(email=data.get('email', None)).first()
-        if user:
-            return {'message': 'User already exists'} , HTTPStatus.CONFLICT
-        # Create new user
+        email = data.get('email')
+        # Check if email already exists
+        if User.get_by_email(email):
+            abort(HTTPStatus.CONFLICT, f"Student with email '{email}' already exists.")
+        # Create new Student
         identifier=str(random.randint(1000, 9999))  
         current_year =  str(datetime.datetime.now().year)
         admission= "STD/" + current_year[-2:] + "/"  + identifier
@@ -90,11 +90,11 @@ class TeacherCreationView(Resource):
     def post(self):
         """ Create a new Teacher Account """
         data = request.get_json()
-        # Check if user already exists
-        user = User.query.filter_by(email=data.get('email', None)).first()
-        if user:
-            return {'message': 'Email already exists'} , HTTPStatus.CONFLICT
-        # Create new user
+        email = data.get('email')
+        # Check if email already exists
+        if User.get_by_email(email):
+            abort(HTTPStatus.CONFLICT, f"Teacher with email '{email}' already exists.")
+        # Create new Teacher
         identifier=str(random.randint(1000, 9999))  
         current_year =  str(datetime.datetime.now().year)
         employee= "TCH/" + current_year[-2:] + "/"  + identifier

@@ -32,6 +32,10 @@ class User(db.Model ):
     @classmethod
     def get_by_id(cls, id):
         return cls.query.get_or_404(id)
+    
+    @classmethod
+    def get_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()
 
     def __repr__(self) -> str:
         return self.email
