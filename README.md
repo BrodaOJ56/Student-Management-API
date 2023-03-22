@@ -98,7 +98,7 @@ Request body:
         "email": "student@gmail.com",
         "first_name": "Olubunmi",
         "last_name": "Oluwatobi",
-         "password": "password123"
+         "password": "password"
     }
 
 ```
@@ -109,10 +109,10 @@ POST /auth/register/teacher
 Request body:
 # Register as a Teacher
     {
-        "email": "student@gmail.com",
-        "first_name": "Olubunmi",
-        "last_name": "Oluwatobi",
-         "password": "password123"
+        "email": "teacher@gmail.com",
+        "first_name": "Adekunle",
+        "last_name": "Olayinka",
+         "password": "password"
     }
 
 ```
