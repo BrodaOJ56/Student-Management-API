@@ -63,7 +63,7 @@
 <!-- About the Blog -->
 ## About Flask REST API for Student Management System
 
-This is a Flask-RESTX API for managing student information and performance. The API includes endpoints for onboarding students, updating student information, viewing student performance, and administrative functions such as adding new students, enrolling students to courses, adding performance and viewing all students.
+This is a Flask-RESTX API for managing student information and performance. The API includes endpoints for onboarding students, updating student's information, viewing student performance, and administrative functions such as adding new students, enrolling students to courses, adding performance and viewing all students.
 The API has two roles: teacher and student. The teacher role has the full access to all the endpoints, which means, a teacher can perform all CRUD operation on course and student namespaces, while the student role can only register as a student, update personal information, view their own information and course performance.
 
 
